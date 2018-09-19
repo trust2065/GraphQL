@@ -8,11 +8,7 @@ function start(route, handle) {
         if (pathName !== '/favicon.ico') {
             console.log(`Request for ${pathName} received`);
 
-            var content = route(pathName, handle);
-
-            response.writeHead(200, { "Content-Type": "text/plain" });
-            response.write(content);
-            response.end();
+            route(pathName, handle, response);
         }
     }
 
